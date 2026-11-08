@@ -2,6 +2,7 @@ package com.example.a08_11_z2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -23,7 +24,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.snackbar.Snackbar;
 
+
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "STOS";
 
     // rejestracja wyniku jako pole klasy - musi powstać przed STARTED
     private final ActivityResultLauncher<Intent> summaryLauncher = registerForActivityResult(
@@ -52,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "MainActivity onCreate");
         setContentView(R.layout.activity_main);
 
         etName = findViewById(R.id.etName);
@@ -71,6 +75,20 @@ public class MainActivity extends AppCompatActivity {
         setUpPizzaSpinner();
         setUpListeners();
         tvQuantityValue.setText(String.valueOf(sbQuantity.getProgress()));
+
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "MainActivity onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "MainActivity onDestroy");
     }
 
     private void setUpPizzaSpinner() {

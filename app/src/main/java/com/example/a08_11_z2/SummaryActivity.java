@@ -3,6 +3,7 @@ package com.example.a08_11_z2;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,11 +23,13 @@ public class SummaryActivity extends AppCompatActivity {
     public static final String EXTRA_ADDRESS = "com.example.a08_11_z2.ADDRESS";
     public static final String EXTRA_NUMBER = "com.example.a08_11_z2.NUMBER";
 
+    private static final String TAG = "STOS";
     private TextView tvSummary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "SummaryActivity onCreate");
         setContentView(R.layout.activity_summary);
 
         tvSummary = findViewById(R.id.tvSummary);
@@ -35,6 +38,18 @@ public class SummaryActivity extends AppCompatActivity {
         findViewById(R.id.btnEdit).setOnClickListener(v -> finish());
         findViewById(R.id.btnConfirm).setOnClickListener(v -> confirm());
         findViewById(R.id.btnShare).setOnClickListener(v -> share());
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "SummaryActivity onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "SummaryActivity onDestroy");
     }
 
     private String buildSummary() {
