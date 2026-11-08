@@ -104,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         btnClear.setOnClickListener(v -> askForClear());
+        findViewById(R.id.btnAbout).setOnClickListener(
+                v -> startActivity(new Intent(this, AboutActivity.class)));
     }
 
     private void askForClear() {

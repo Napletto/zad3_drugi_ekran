@@ -60,4 +60,7 @@
     <string name="cancelled">Zamówienie niezłożone, popraw dane</string>
     <string name="share_via">Udostępnij przez</string>
     <string name="error_no_app">Brak aplikacji do obsługi tej czynności</string>
+    <string name="btn_about">O APLIKACJI</string>
+    <string name="header_about">O aplikacji</string>
+    <string name="about_text">Pizzeria, wersja 1.0\nAplikacja szkolna: dwa ekrany, intencje jawne i niejawne.</string>
 </resources>
